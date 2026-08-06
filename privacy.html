@@ -17,39 +17,221 @@
   }
   h1 { font-size: 1.7em; }
   h2 { margin-top: 1.6em; }
+  h3 { margin-top: 1.4em; font-size: 1.05em; }
   .muted { color: #86868b; }
   hr { border: none; border-top: 1px solid rgba(134,134,139,.35); margin: 40px 0; }
   footer { margin-top: 48px; font-size: .9em; color: #86868b; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: .95em; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid rgba(134,134,139,.25); vertical-align: top; }
 </style>
 </head>
 <body>
   <h1>Privacy Policy — SurnovLifeManager</h1>
-  <p class="muted">Updated: July 28, 2026 / Обновлено: 28 июля 2026</p>
+  <p class="muted">Updated: August 6, 2026 / Обновлено: 6 августа 2026</p>
 
   <h2>English</h2>
-  <p>The SurnovLifeManager app does not collect, store, or transmit any personal data.</p>
+
+  <p>SurnovLifeManager (the app, displayed as «Жизнь») is a personal planning app for
+  tasks, habits, and personal finance. Since August 2026 the app stores your data in
+  its own cloud database so that it can sync between your devices. This policy
+  describes exactly what is stored, where, and how to delete it.</p>
+
+  <p><strong>Earlier versions of this policy said the app collected no data and had no
+  servers. That was true of versions released before August 2026 and is no longer
+  true.</strong> If you use the app with an account, the data below leaves your device.</p>
+
+  <h3>What is collected</h3>
+  <table>
+    <tr><th>Data</th><th>Why</th></tr>
+    <tr>
+      <td><strong>Email address and password</strong></td>
+      <td>To create your account and sign you in. The password is stored only as a
+      cryptographic hash by our authentication provider; the developer never sees it.</td>
+    </tr>
+    <tr>
+      <td><strong>Content you create in the app</strong> — life areas, projects, tasks
+      and their notes, habits and habit logs, daily journal entries (mood, win of the
+      day), planner settings and day plans, and personal finance records: accounts,
+      categories, transactions and their notes, exchange rates, currency settings,
+      loans, savings goals, wishlist items, and recurring payments.</td>
+      <td>This is the content of the app itself. It is stored so it survives device
+      loss and appears on your other devices.</td>
+    </tr>
+  </table>
+
+  <p>The app does <strong>not</strong> collect analytics, usage statistics, device
+  identifiers for advertising, location, contacts, photos, or health data. It contains
+  no analytics SDKs, no advertising networks, and no tracking tools of any kind. Your
+  data is never sold, rented, or shared for advertising.</p>
+
+  <h3>Where it is stored</h3>
   <ul>
-    <li><strong>All data is local.</strong> Tasks, habits, finance records, and settings are stored only on your device (local SwiftData database). The app has no servers and no accounts.</li>
-    <li><strong>No analytics or tracking.</strong> The app contains no analytics SDKs, ad networks, or tracking tools of any kind.</li>
-    <li><strong>Calendar.</strong> The app requests access to the system calendar for one purpose only — adding your task deadlines to your calendar. Calendar data never leaves the device.</li>
-    <li><strong>Notifications.</strong> Local notifications (reminders) are created and processed on the device.</li>
-    <li><strong>iCloud sync (if enabled in a future version).</strong> Data may sync between your devices through your personal, private iCloud database. The developer has no access to it. Nothing is ever sent to the developer or any third party.</li>
-    <li><strong>Data deletion.</strong> Delete the app, and all of its data is deleted with it.</li>
+    <li><strong>On your device.</strong> A local database holds a full copy so the app
+    works offline. Changes made offline are uploaded when a connection returns.</li>
+    <li><strong>On the server.</strong> A PostgreSQL database hosted by Supabase in
+    <strong>Frankfurt, Germany (European Union)</strong>. Every row is tied to your
+    account, and database-level row security prevents one account from reading
+    another's data.</li>
   </ul>
+
+  <h3>Who else processes it</h3>
+  <table>
+    <tr><th>Provider</th><th>Role</th></tr>
+    <tr><td>Supabase</td><td>Database, authentication, and hosting (EU region)</td></tr>
+    <tr><td>PowerSync (JourneyApps)</td><td>Synchronisation between your device and the database</td></tr>
+    <tr><td>Apple</td><td>App distribution (App Store, TestFlight) and push notification delivery</td></tr>
+  </table>
+  <p>The developer has administrative access to the database, as is technically
+  necessary to operate the service. That access is used for operating and repairing the
+  service, and to help you when you ask for support — not to browse your content.</p>
+
+  <h3>What stays on your device</h3>
+  <ul>
+    <li><strong>Calendar.</strong> The app asks for calendar access to write your task
+    deadlines into your own calendar, and to read your existing events when building a
+    day plan so it does not schedule over them. Calendar events are never uploaded to
+    the server.</li>
+    <li><strong>Notifications.</strong> Reminders are local notifications created and
+    scheduled on the device.</li>
+    <li><strong>AI features.</strong> Task breakdown and the weekly review run on
+    Apple's on-device model. Nothing is sent to the developer, to Apple, or to any
+    other AI service. On devices without on-device model support, these features are
+    simply not shown.</li>
+    <li><strong>Data from earlier versions.</strong> If you used a version released
+    before August 2026, a local database from that version may still exist on your
+    device, and data may still exist in your own private iCloud. The developer has no
+    access to your iCloud data.</li>
+  </ul>
+
+  <h3>How long it is kept</h3>
+  <p>Your data is kept for as long as your account exists. When you delete an item in the
+  app it stops being shown immediately, but the row is kept in the database marked as
+  deleted — that is how the deletion reaches your other devices, including ones that were
+  offline at the time. Those marked rows are erased when you delete your account.</p>
+
+  <h3>Deleting your account and data</h3>
+  <p>In the app: <strong>Settings → Account → Delete account</strong>. This deletes your
+  account and, with it, every row of your data across all tables — the database removes
+  them automatically as part of deleting the account. <strong>This is immediate and
+  cannot be undone.</strong> Removing the app from your device alone does not delete
+  data held on the server; use the in-app deletion for that.</p>
+
+  <h3>Your rights</h3>
+  <p>You can read, correct, and delete your data at any time inside the app itself. If
+  you are in the EU or UK, you also have the right to request a copy of your data or to
+  object to its processing. Write to the address below and you will get an answer.</p>
+
+  <h3>Children</h3>
+  <p>The app is not directed at children and is not intended for use by children under 13.</p>
+
+  <h3>Changes</h3>
+  <p>If this policy changes, the date at the top changes with it, and material changes
+  will be announced in the app.</p>
+
   <p>Contact: <a href="mailto:jkkjfn1997@gmail.com">jkkjfn1997@gmail.com</a></p>
 
   <hr>
 
   <h2>Русский</h2>
-  <p>Приложение SurnovLifeManager не собирает, не хранит и не передаёт никакие персональные данные.</p>
+
+  <p>SurnovLifeManager (в приложении — «Жизнь») — личный планировщик задач, привычек и
+  финансов. С августа 2026 года приложение хранит данные в собственной облачной базе,
+  чтобы они синхронизировались между вашими устройствами. Ниже — что именно хранится,
+  где и как это удалить.</p>
+
+  <p><strong>Прежняя редакция этой политики утверждала, что приложение не собирает
+  данные и не имеет серверов. Это было верно для версий до августа 2026 года и больше
+  верным не является.</strong> Если вы пользуетесь приложением с аккаунтом, перечисленные
+  ниже данные покидают устройство.</p>
+
+  <h3>Что собирается</h3>
+  <table>
+    <tr><th>Данные</th><th>Зачем</th></tr>
+    <tr>
+      <td><strong>Адрес почты и пароль</strong></td>
+      <td>Чтобы создать аккаунт и впускать вас в него. Пароль хранится только в виде
+      криптографического хеша у поставщика аутентификации; разработчик его не видит.</td>
+    </tr>
+    <tr>
+      <td><strong>Содержимое, которое вы создаёте</strong> — сферы жизни, проекты,
+      задачи и заметки к ним, привычки и отметки о выполнении, дневник дня (настроение,
+      победа дня), настройки планировщика и планы дня, а также финансовые записи: счета,
+      категории, операции и заметки к ним, курсы валют, валютные настройки, кредиты,
+      цели накоплений, список желаний и регулярные платежи.</td>
+      <td>Это и есть содержимое приложения. Оно хранится, чтобы пережить потерю телефона
+      и появиться на других ваших устройствах.</td>
+    </tr>
+  </table>
+
+  <p>Приложение <strong>не</strong> собирает аналитику, статистику использования,
+  рекламные идентификаторы, геопозицию, контакты, фотографии и данные о здоровье. В нём
+  нет аналитических SDK, рекламных сетей и любых инструментов слежения. Ваши данные не
+  продаются, не сдаются в аренду и не передаются для рекламы.</p>
+
+  <h3>Где это хранится</h3>
   <ul>
-    <li><strong>Все данные локальны.</strong> Задачи, привычки, финансовые записи и настройки хранятся только на вашем устройстве (локальная база SwiftData). У приложения нет серверов и нет аккаунтов.</li>
-    <li><strong>Нет аналитики и трекинга.</strong> Приложение не содержит аналитических SDK, рекламных сетей и любых инструментов слежения.</li>
-    <li><strong>Календарь.</strong> Доступ к системному календарю запрашивается только для одной цели — добавлять дедлайны ваших задач в ваш календарь. Данные календаря не покидают устройство.</li>
-    <li><strong>Уведомления.</strong> Локальные уведомления (напоминания) создаются и обрабатываются на устройстве.</li>
-    <li><strong>Синхронизация iCloud (если появится в будущей версии).</strong> Данные могут синхронизироваться между вашими устройствами через ваш личный приватный iCloud. У разработчика нет к нему доступа. Ничего никогда не отправляется разработчику или третьим лицам.</li>
-    <li><strong>Удаление данных.</strong> Удалите приложение — и все его данные будут удалены вместе с ним.</li>
+    <li><strong>На вашем устройстве.</strong> Локальная база держит полную копию, поэтому
+    приложение работает без сети. Правки, сделанные офлайн, уезжают, когда связь
+    возвращается.</li>
+    <li><strong>На сервере.</strong> База PostgreSQL на площадке Supabase во
+    <strong>Франкфурте, Германия (Европейский союз)</strong>. Каждая строка привязана к
+    вашему аккаунту, а защита на уровне строк в самой базе не даёт одному аккаунту
+    прочитать данные другого.</li>
   </ul>
+
+  <h3>Кто ещё обрабатывает данные</h3>
+  <table>
+    <tr><th>Поставщик</th><th>Роль</th></tr>
+    <tr><td>Supabase</td><td>База данных, аутентификация, хостинг (регион ЕС)</td></tr>
+    <tr><td>PowerSync (JourneyApps)</td><td>Синхронизация между устройством и базой</td></tr>
+    <tr><td>Apple</td><td>Распространение приложения (App Store, TestFlight) и доставка уведомлений</td></tr>
+  </table>
+  <p>У разработчика есть административный доступ к базе — без него службу невозможно
+  обслуживать. Этот доступ используется для работы и починки сервиса и чтобы помочь вам,
+  когда вы обращаетесь в поддержку, а не для чтения вашего содержимого.</p>
+
+  <h3>Что не покидает устройство</h3>
+  <ul>
+    <li><strong>Календарь.</strong> Доступ к календарю нужен, чтобы записывать дедлайны
+    ваших задач в ваш же календарь и чтобы при сборке плана дня видеть уже занятое время
+    и не назначать поверх него. События календаря на сервер не отправляются.</li>
+    <li><strong>Уведомления.</strong> Напоминания — локальные уведомления, они создаются
+    и живут на устройстве.</li>
+    <li><strong>Функции ИИ.</strong> Разбор задачи и итоги недели считает модель Apple
+    прямо на устройстве. Ничего не отправляется ни разработчику, ни Apple, ни какому-либо
+    ИИ-сервису. На устройствах без поддержки такой модели эти функции просто не
+    показываются.</li>
+    <li><strong>Данные прежних версий.</strong> Если вы пользовались версией до августа
+    2026 года, на устройстве может оставаться её локальная база, а данные — в вашем
+    личном iCloud. К вашему iCloud у разработчика доступа нет.</li>
+  </ul>
+
+  <h3>Сколько это хранится</h3>
+  <p>Данные хранятся, пока существует ваш аккаунт. Когда вы удаляете запись в приложении,
+  она сразу перестаёт показываться, но строка остаётся в базе с пометкой об удалении —
+  так удаление доезжает до остальных ваших устройств, включая те, что в этот момент были
+  офлайн. Помеченные строки стираются вместе с удалением аккаунта.</p>
+
+  <h3>Как удалить аккаунт и данные</h3>
+  <p>В приложении: <strong>Настройки → Аккаунт → Удалить аккаунт</strong>. Это удаляет
+  аккаунт, а вместе с ним — все ваши строки во всех таблицах: база убирает их
+  автоматически как часть удаления аккаунта. <strong>Это происходит сразу и не
+  отменяется.</strong> Просто удалить приложение с устройства недостаточно — серверные
+  данные при этом остаются, для них нужно удаление из приложения.</p>
+
+  <h3>Ваши права</h3>
+  <p>Читать, исправлять и удалять свои данные можно в любой момент прямо в приложении.
+  Если вы находитесь в ЕС или Великобритании, у вас есть также право запросить копию
+  своих данных или возразить против их обработки. Напишите на адрес ниже — вам ответят.</p>
+
+  <h3>Дети</h3>
+  <p>Приложение не адресовано детям и не предназначено для использования детьми младше
+  13 лет.</p>
+
+  <h3>Изменения</h3>
+  <p>Если политика меняется, вместе с ней меняется дата наверху, а о существенных
+  изменениях сообщается в приложении.</p>
+
   <p>Вопросы: <a href="mailto:jkkjfn1997@gmail.com">jkkjfn1997@gmail.com</a></p>
 
   <footer>© 2026 Simon Surnov</footer>
